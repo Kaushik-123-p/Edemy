@@ -17,7 +17,7 @@ const Navbar = () => {
         className="w-28 lg:w-32 cursor-pointer"
       />
       <div className="hidden md:flex items-center gap-5 text-gray-500">
-        <div>
+        <div className="flex items-center gap-5">
           <button>Become Educator</button>|
           <Link to="/my-enrollments">My Enrollments</Link>
         </div>
@@ -25,7 +25,16 @@ const Navbar = () => {
           Create Account
         </button>
       </div>
-      <div></div>
+      {/* for mobile screens */}
+      <div className="md:hidden flex items-center gap-2 sm:gap-5 text-gray-500">
+        <div className="flex items-center gap-5">
+          <button>Become Educator</button>|
+          <Link to="/my-enrollments">My Enrollments</Link>
+        </div>
+        <button>
+          <img src={assets.user_icon} alt="user" />
+        </button>
+      </div>
     </div>
   );
 };
