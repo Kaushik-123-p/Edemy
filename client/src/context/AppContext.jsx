@@ -14,6 +14,17 @@ export const AppContextProvider = (props) => {
     setAllCourses(dummyCourses);
   };
 
+  const calculateRating = (course) => {
+    if (!course.courseRating || course.courseRating.length === 0) {
+      return 0;
+    }
+    let totalRating = 0;
+    course.courseRating.forEach((rating) => {
+      totalRating += rating.rating;
+    });
+    return totalRating / course.courseRating.length;
+  };
+
   useEffect(() => {
     fetchAllCourses();
   }, []);
@@ -21,6 +32,7 @@ export const AppContextProvider = (props) => {
   const value = {
     currency,
     allCourses,
+    calculateRating,
     navigate,
   };
 
